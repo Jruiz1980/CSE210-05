@@ -14,11 +14,11 @@ class Cycle(Actor):
         _offset (int): The offset in the initial coords where the snake will be drawed.
         _color (int): The color of the snake.
     """
-    def __init__(self, color):
+    def __init__(self, color, offset):
         super().__init__()
         self._segments = []
-        #self._offset = offset
-        self._cycle_color = color
+        self._offset = offset
+        self._color = color
         self._prepare_body()
         
 
@@ -57,16 +57,8 @@ class Cycle(Actor):
         self._segments[0].set_velocity(velocity)
     
     def _prepare_body(self):
-        x = 0.0
-        y = 0.0
-
-        if (self._cycle_color == constants.RED):
-            x = int(20)
-            y = int(constants.MAX_Y / 2)
-        else:
-            x = int(-20)
-            y = int(constants.MAX_Y / 2)
-
+        x = int(constants.MAX_X / 2  + self._offset)
+        y = int(constants.MAX_Y / 2)
 
         for i in range(constants.SNAKE_LENGTH):
             position = Point(x - i * constants.CELL_SIZE, y)
@@ -78,5 +70,5 @@ class Cycle(Actor):
             segment.set_position(position)
             segment.set_velocity(velocity)
             segment.set_text(text)
-            segment.set_color(self._cycle_color)
+            segment.set_color(self._color)
             self._segments.append(segment)
