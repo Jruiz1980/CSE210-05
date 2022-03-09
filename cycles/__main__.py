@@ -3,7 +3,7 @@ import constants
 from game.casting.cast import Cast
 from game.casting.food import Food
 from game.casting.score import Score
-from game.casting.snake import Snake
+from game.casting.cycle import Cycle
 from game.scripting.script import Script
 from game.scripting.control_actors_action import ControlActorsAction
 from game.scripting.move_actors_action import MoveActorsAction
@@ -20,11 +20,11 @@ def main():
     
     # create the cast
     cast = Cast()
-    cast.add_actor("foods", Food()) #NO needed now
-    cast.add_actor("snakes", Snake(constants.RED, -5 * constants.CELL_SIZE))
-    cast.add_actor("snake2", Snake(constants.GREEN, 5 * constants.CELL_SIZE))  # Player 2 Snake
-    cast.add_actor("scores", Score())  # >> They earn a point if they win
-    #cast.add_actor("scores", Score()) # Player 2 Score
+    cast.add_actor("foods", Food())
+    cast.add_actor("cycles", Cycle(constants.RED))
+    cast.add_actor("cycles", Cycle(constants.GREEN))
+    cast.add_actor("scores", Score(Point(0,0), 'Player 1'))
+    cast.add_actor("scores", Score(Point(765,0), 'Player 2'))
    
     # start the game
     keyboard_service = KeyboardService()
