@@ -12,12 +12,13 @@ class Snake(Actor):
     Attributes:
         _points (int): The number of points the food is worth.
     """
-    def __init__(self, color):
+    def __init__(self, color, offset):
         super().__init__()
         self._segments = []
-        self._prepare_body()
+        self._offset = offset
         self._color = color
-        #self._offset = offset
+        self._prepare_body()
+        
 
     def get_segments(self):
         return self._segments
@@ -54,8 +55,8 @@ class Snake(Actor):
         self._segments[0].set_velocity(velocity)
     
     def _prepare_body(self):
-        x = int(constants.MAX_X / 2) #+ self._offset 
-        y = int(constants.MAX_Y / 2)
+        x = int(constants.MAX_X / 2) #
+        y = int(constants.MAX_Y / 2 + self._offset) # Temporal, when the snake is vertical the offset will be on X
 
         for i in range(constants.SNAKE_LENGTH):
             position = Point(x - i * constants.CELL_SIZE, y)

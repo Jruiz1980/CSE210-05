@@ -21,8 +21,8 @@ def main():
     # create the cast
     cast = Cast()
     cast.add_actor("foods", Food()) #NO needed now
-    cast.add_actor("snakes", Snake(constants.RED))
-    cast.add_actor("snake2", Snake(constants.GREEN))  # Player 2 Snake
+    cast.add_actor("snakes", Snake(constants.RED, -5 * constants.CELL_SIZE))
+    cast.add_actor("snake2", Snake(constants.GREEN, 5 * constants.CELL_SIZE))  # Player 2 Snake
     cast.add_actor("scores", Score())  # >> They earn a point if they win
     #cast.add_actor("scores", Score()) # Player 2 Score
    
