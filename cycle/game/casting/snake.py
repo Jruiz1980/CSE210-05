@@ -10,7 +10,9 @@ class Snake(Actor):
     The responsibility of Snake is to move itself.
 
     Attributes:
-        _points (int): The number of points the food is worth.
+        _segments (array): The segments contained in the snake.
+        _offset (int): The offset in the initial coords where the snake will be drawed.
+        _color (int): The color of the snake.
     """
     def __init__(self, color, offset):
         super().__init__()
