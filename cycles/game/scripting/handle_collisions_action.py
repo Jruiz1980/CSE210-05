@@ -39,10 +39,12 @@ class HandleCollisionsAction(Action):
         cycle1 = cast.get_first_actor("cycle1")
         head1 = cycle1.get_segments()[0]
         segments1 = cycle1.get_segments()[1:]
+        score1 = cast.get_first_actor("score1")
         # Player 2
         cycle2 = cast.get_first_actor("cycle2")
         head2 = cycle2.get_segments()[0]
         segments2 = cycle2.get_segments()[1:]
+        score2 = cast.get_first_actor("score2")
         
         # Player 1 collision with self
         for segment in segments1:
@@ -52,6 +54,7 @@ class HandleCollisionsAction(Action):
         for segment in segments2:
             if head1.get_position().equals(segment.get_position()):
                 self._is_game_over = True
+                score1.add_points(1)
         # Player 2 collision with self
         for segment in segments2:
             if head2.get_position().equals(segment.get_position()):
@@ -60,6 +63,7 @@ class HandleCollisionsAction(Action):
         for segment in segments1:
             if head2.get_position().equals(segment.get_position()):
                 self._is_game_over = True
+                score2.add_points(1)
         
     def _handle_game_over(self, cast):
         """Shows the 'game over' message and turns the snake and food white if the game is over.
