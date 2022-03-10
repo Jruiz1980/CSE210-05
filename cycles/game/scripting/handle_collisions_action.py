@@ -1,4 +1,5 @@
 import constants
+import random
 from game.casting.actor import Actor
 from game.scripting.action import Action
 from game.shared.point import Point
@@ -27,7 +28,23 @@ class HandleCollisionsAction(Action):
         """
         if not self._is_game_over:
             self._handle_segment_collision(cast)
+            self._handle_addition_segments(cast)
             self._handle_game_over(cast)
+
+    def _handle_addition_segments(self, cast):
+        """Updates the snake and adds 
+        
+        Args:
+            cast (Cast): The cast of Actors in the game.
+        """
+        cycle1 = cast.get_first_actor("cycle1")
+        cycle2 = cast.get_first_actor("cycle2")
+
+        frecuency = random.randint(1,20)
+
+        if frecuency == 1:
+            cycle1.grow_trail(1)
+            cycle2.grow_trail(1)
 
     def _handle_segment_collision(self, cast):
         """Sets the game over flag if the snake collides with one of its segments.
