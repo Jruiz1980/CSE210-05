@@ -64,6 +64,7 @@ class HandleCollisionsAction(Action):
         for segment in segments1:
             if head1.get_position().equals(segment.get_position()):
                 self._is_game_over = True
+                score2.add_points(1)
         # Player 1 collision with opponent
         for segment in segments2:
             if head1.get_position().equals(segment.get_position()):
@@ -72,7 +73,8 @@ class HandleCollisionsAction(Action):
         # Player 2 collision with self
         for segment in segments2:
             if head2.get_position().equals(segment.get_position()):
-                self._is_game_over = True    
+                self._is_game_over = True
+                score1.add_points(1)   
         # Player 2 collision with opponent
         for segment in segments1:
             if head2.get_position().equals(segment.get_position()):
