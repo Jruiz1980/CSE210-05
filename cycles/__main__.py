@@ -21,10 +21,10 @@ def main():
     # create the cast
     cast = Cast()
     # cast.add_actor("foods", Food())
-    cast.add_actor("cycles", Cycle(constants.RED))
-    cast.add_actor("cycles", Cycle(constants.GREEN))
-    cast.add_actor("scores", Score(Point(0,0), 'Player 1'))
-    cast.add_actor("scores", Score(Point(765,0), 'Player 2'))
+    cast.add_actor("cycle1", Cycle(constants.RED, -5 * constants.CELL_SIZE))
+    cast.add_actor("cycle2", Cycle(constants.GREEN, 5 * constants.CELL_SIZE))
+    cast.add_actor("score1", Score('Player 1', Point(0,0)))
+    cast.add_actor("score2", Score('Player 2', Point(765,0),))
    
     # start the game
     keyboard_service = KeyboardService()
@@ -36,9 +36,7 @@ def main():
     script.add_action("update", HandleCollisionsAction())
     script.add_action("output", DrawActorsAction(video_service))
     
-    director = Director(video_service)
-
-    
+    director = Director(video_service)   
     director.start_game(cast, script)
 
 
