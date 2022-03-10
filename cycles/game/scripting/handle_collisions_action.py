@@ -40,11 +40,8 @@ class HandleCollisionsAction(Action):
         cycle1 = cast.get_first_actor("cycle1")
         cycle2 = cast.get_first_actor("cycle2")
 
-        frecuency = random.randint(1,20)
-
-        if frecuency == 1:
-            cycle1.grow_trail(1)
-            cycle2.grow_trail(1)
+        cycle1.grow_trail(1)
+        cycle2.grow_trail(1)
 
     def _handle_segment_collision(self, cast):
         """Sets the game over flag if the snake collides with one of its segments.
