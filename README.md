@@ -14,8 +14,8 @@ Cycle is a game where the players try to cut each other off using cycles that le
 Cycle is played according to the following rules.
 
 Players can move up, down, left and right...
-Player one moves using the W, S, A and D keys.
-Player two moves using the I, K, J and L keys.
+Player one (red) moves using the W, S, A and D keys.
+Player two (green) moves using the I, K, J and L keys.
 
 Each player's trail grows as they move.
 Players try to maneuver so the opponent collides with their trail.
