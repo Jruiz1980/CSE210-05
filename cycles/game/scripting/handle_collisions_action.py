@@ -40,11 +40,8 @@ class HandleCollisionsAction(Action):
         cycle1 = cast.get_first_actor("cycle1")
         cycle2 = cast.get_first_actor("cycle2")
 
-        frecuency = random.randint(1,20)
-
-        if frecuency == 1:
-            cycle1.grow_trail(1)
-            cycle2.grow_trail(1)
+        cycle1.grow_trail(1)
+        cycle2.grow_trail(1)
 
     def _handle_segment_collision(self, cast):
         """Sets the game over flag if the snake collides with one of its segments.
@@ -67,6 +64,7 @@ class HandleCollisionsAction(Action):
         for segment in segments1:
             if head1.get_position().equals(segment.get_position()):
                 self._is_game_over = True
+                score2.add_points(1)
         # Player 1 collision with opponent
         for segment in segments2:
             if head1.get_position().equals(segment.get_position()):
@@ -75,7 +73,8 @@ class HandleCollisionsAction(Action):
         # Player 2 collision with self
         for segment in segments2:
             if head2.get_position().equals(segment.get_position()):
-                self._is_game_over = True    
+                self._is_game_over = True
+                score1.add_points(1)   
         # Player 2 collision with opponent
         for segment in segments1:
             if head2.get_position().equals(segment.get_position()):
