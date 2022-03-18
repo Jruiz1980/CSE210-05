@@ -28,7 +28,7 @@ class DrawActorsAction(Action):
         """
         score1 = cast.get_first_actor("score1")
         score2 = cast.get_first_actor("score2")
-        # food = cast.get_first_actor("foods")
+        food = cast.get_first_actor("foods")
         cycle1 = cast.get_first_actor("cycle1")
         cycle2 = cast.get_first_actor("cycle2") # --------------
         segments = cycle1.get_segments()
@@ -36,7 +36,7 @@ class DrawActorsAction(Action):
         messages = cast.get_actors("messages")
 
         self._video_service.clear_buffer()
-        # self._video_service.draw_actor(food)
+        self._video_service.draw_actor(food)
         self._video_service.draw_actors(segments)
         self._video_service.draw_actors(segments2) # ------------
         self._video_service.draw_actor(score1)

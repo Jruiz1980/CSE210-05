@@ -1,7 +1,6 @@
 import constants
-
 from game.casting.cast import Cast
-# from game.casting.food import Food
+from game.casting.food import Food
 from game.casting.score import Score
 from game.casting.cycle import Cycle
 from game.scripting.script import Script
@@ -20,9 +19,9 @@ def main():
     
     # create the cast
     cast = Cast()
-    # cast.add_actor("foods", Food())
+    cast.add_actor("foods", Food())
     cast.add_actor("cycle1", Cycle(constants.RED, -5 * constants.CELL_SIZE))
-    cast.add_actor("cycle2", Cycle(constants.GREEN, 5 * constants.CELL_SIZE))
+    cast.add_actor("cycle2", Cycle(constants.BLUE, 5 * constants.CELL_SIZE))
     cast.add_actor("score1", Score('Player 1', Point(0,0)))
     cast.add_actor("score2", Score('Player 2', Point(765,0)))
    

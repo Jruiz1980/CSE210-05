@@ -1,3 +1,7 @@
+two players race to get the most points or money by the end of time wins.
+*add 3 players (wasd,ijkl,arrows)
+*obstacles in the game (rocks, spikes, walls)
+
 # CSE210-05
             Cycle
 The best rides are the ones where you
